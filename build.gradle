@@ -1,13 +1,13 @@
 plugins {
-    id 'org.springframework.boot' version '2.1.6.RELEASE'
     id 'java'
+    id 'org.springframework.boot' version '2.2.0.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
 }
-
-apply plugin: 'io.spring.dependency-management'
 
 group = 'com.circleci'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.11'
+
 
 repositories {
     mavenCentral()
@@ -24,12 +24,16 @@ configurations {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
     compile group: 'org.webjars', name: 'bootstrap', version: '3.3.7'
+
     runtime 'org.postgresql:postgresql:42.2.6'
     runtime 'com.h2database:h2'
+
     developmentOnly("org.springframework.boot:spring-boot-devtools")
 }
 
